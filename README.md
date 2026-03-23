@@ -19,10 +19,10 @@
 ## 🚀 Установка
 
 1. Клонируй репозиторий
-   git clone https://github.com/твой_юзернейм/ai-personal-assistant
+   git clone https://github.com/dezdezd/ai-agent
 
 2. Установи зависимости
-   pip install groq tavily-python python-dotenv
+   pip install -r requirements.txt
 
 3. Создай файл .env
    GROQ_API_KEY=твой_ключ
