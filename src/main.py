@@ -1,16 +1,22 @@
-# This is a sample Python script.
+from pathlib import Path
+from dotenv import load_dotenv
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+load_dotenv(Path(__file__).parent.parent / ".env")
 
+from agent import run_agent
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+history = []
 
+print("ассистент готов, напиши 'выход' чтобы закончить.\n")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+while True:
+    user_input = input("Ты: ").strip()
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    if not user_input:
+        continue
+
+    if user_input.lower() == "выход":
+        break
+
+    response = run_agent(history, user_input)
+    print(f"Агент: {response}\n")
